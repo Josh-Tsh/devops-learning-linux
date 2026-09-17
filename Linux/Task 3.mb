@@ -1,0 +1,28 @@
+#Task 3
+
+##File Permissions
+
+## File creating shell file
+echo "Hello World" > HelloWorld.sh
+
+## Make it executable
+chmod +x HelloWorld.sh
+## Change ownership
+sudo chown root:root HelloWorld.sh
+
+## Understanding permissions
+ls -l HelloWorld.sh
+## Ouput:
+-rwxr-xr-x 1 root   root     12 Sep 17 22:44  HelloWorld.sh
+## Breakdown: owner(rwx) group(r-x) others(r-x)
+## Challenge: Create a file that only you can read/write, but others can only read. Document the command.
+
+## create file
+touch file.txt
+
+## change Permission of file
+chmod 644 file.txt
+## check 
+ls -l file.txt
+## Output: -rw-r--r-- 1 jtshab jtshab    0 Sep 17 22:52  file.txt
+## Breakdown: owner(rw-) group(r--) others(r--)
