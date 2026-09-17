@@ -1,0 +1,37 @@
+# Bandit Levels
+
+## Level 0
+ssh bandit0@bandit.labs.overthewire.org -p 2220
+# Password: bandit0
+
+## Bandit Level 0 → Level 1
+
+**Challenge:* Read 'readme.mb' file
+
+**Solution:**
+```bash
+cat readme.mb
+```
+**Explanation:**
+- cat command reads contents in the file selected.
+
+**Password:** 6y2kwnwK6grgvwvpvLaa2T1cpFEKOhNR
+
+**What I learned:** How to read contents of a file.
+
+
+## Bandit Level 1 → Level 2
+
+**Challenge:* Find password stored in '-' file
+
+**Solution:**
+```bash
+cat ./-
+```
+**Explanation:**
+- The cat command can be used with a specific file path to display the contents of that file.
+- Using the full file path is more reliable because it clearly identifies the exact file you want to access.
+
+**Password:** PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
+
+**What I learned:** How to use the cat command with a specific file path.
