@@ -9,6 +9,7 @@ mkdir -p projects/demo
 cp test.txt projects/demo/
 mv projects/demo/test.txt projects/demo/backup.txt
 rm projects/demo/backup.txt
+vim test.txt   # edit file
 
 # Viewing files
 cat /etc/passwd
@@ -16,7 +17,74 @@ less /var/log/syslog
 head -n 20 /etc/services
 tail -f /var/log/auth.log
 
-# User/Groups
-useradd -m newuser
-groupadd newgroup
-usermod newgroup newuser
+# Users / Groups
+sudo useradd newuser
+# Creates the user, but usually does NOT create a home directory
+
+sudo useradd -m newuser
+# Creates the user AND a home directory
+
+sudo groupadd newgroup
+# Creates a new group
+
+sudo usermod -aG newgroup newuser
+# Adds newuser to newgroup
+# -a = append
+# -G = supplementary groups
+
+sudo gpasswd -d newuser newgroup
+# Removes newuser from newgroup
+# Permissions
+ls -l
+chmod 755 file
+chmod +x script.sh
+chown user:group file
+sudo chown user:group file
+
+# Searching
+find /path -name "file.txt"
+grep "word" file.txt
+grep -r "word" directory/
+which python3
+
+# File information
+file filename
+stat filename
+du -sh directory/
+df -h
+
+# Processes
+ps aux
+top
+kill PID
+kill -9 PID
+
+# Networking
+ip addr
+ip route
+ping google.com
+ss -tulpn
+hostname
+
+# Redirection / Pipes
+command > file.txt
+command >> file.txt
+command 2> errors.txt
+command1 | command2
+
+# Shell / Environment
+echo $PATH
+export NAME="Josh"
+source ~/.bashrc
+history
+
+# Archives
+tar -cvf archive.tar folder/
+tar -xvf archive.tar
+tar -czvf archive.tar.gz folder/
+tar -xzvf archive.tar.gz
+
+# Standard file descriptors
+0 = stdin
+1 = stdout
+2 = stderr
