@@ -47,6 +47,25 @@ grep "word" file.txt
 grep -r "word" directory/
 which python3
 
+# Find
+find . -name "file.txt"                     # find file by name
+find . -iname "file.txt"                    # find file, ignore case
+find . -type f                              # find files only
+find . -type d                              # find directories only
+find . -type f -size 1033c                  # find file exactly 1033 bytes
+find . -type f -size +10M                   # find files larger than 10MB
+find . -type f -size -10M                   # find files smaller than 10MB
+find . -type f -executable                  # find executable files
+find . -type f ! -executable                # find non-executable files
+find . -type f -readable                    # find readable files
+find . -type f -user username               # find files owned by user
+find . -type f -group groupname             # find files owned by group
+find . -type f -mtime -1                    # modified in last 24 hours
+find . -type f -mmin -30                    # modified in last 30 minutes
+find / -name "file.txt" 2>/dev/null         # search whole system, hide errors
+find . -type f -exec file {} \;             # show file type of results
+find . -type f -exec ls -lh {} \;           # show results with human-readable sizes
+
 # File information
 file filename
 stat filename
