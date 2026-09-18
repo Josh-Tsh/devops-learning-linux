@@ -91,3 +91,26 @@ cat ./-file07
 - -file07 is the only file containing text therefore human readable
 
 **Password:** 6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
+
+## Bandit Level 5 → Level 6
+
+**Challenge:* The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+- human-readable
+- 1033 bytes in size
+- not executable
+
+**Solution:**
+```bash
+cd 
+file $(find . -type f -size 1033c ! -executable)
+OUTPUT --
+./maybehere07/.file2: ASCII text, with very long lines (1000)
+--
+cat ./maybehere07/.file2
+```
+
+**Explanation:** 
+- Needed to combined the file comand with the find command
+- Just the find command checks for files that meet the requirements file size and not executable
+
+**Password:** pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
