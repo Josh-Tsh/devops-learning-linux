@@ -35,3 +35,59 @@ cat ./-
 **Password:** PK8fYLZg2hnHSz83plBL1iEPKdD3QToB
 
 **What I learned:** How to use the cat command with a specific file path.
+
+## Bandit Level 2 → Level 3
+
+**Challenge:* Find password stored in '--spaces in this filename--' file
+
+**Solution:**
+```bash
+cat ./'-spaces in this filename--'
+```
+**Explanation:**
+The cat command can be used with a specific file path to display the contents of that file.
+- Using the full file path is more reliable because it clearly identifies the exact file you want to access.
+
+**Password:** 7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME
+
+## Bandit Level 3 → Level 4
+
+**Challenge:* The password for the next level is stored in a hidden file in the inhere directory.
+
+```bash
+cd inhere/
+ls -lah
+OUTPUT --
+total 12K
+drwxr-xr-x 2 root    root    4.0K Jun 24 14:59 .
+drwxr-xr-x 3 root    root    4.0K Jun 24 14:59 ..
+-rw-r----- 1 bandit4 bandit3   33 Jun 24 14:59 ...Hiding-From-You
+--
+cat ./...Hiding-From-You
+```
+**Explanation:** 
+- The ls command list all conntent but not hidden
+- But with lah it shows all hidden files
+
+**Password:** xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq
+
+## Bandit Level 4 → Level 5
+
+**Challenge:* Find password stored in '--spaces in this filename--' file
+
+**Solution:**
+```bash
+cd inhere/
+file ./*
+OUTPUT --
+./-file06: OpenPGP Public Key
+./-file07: ASCII text
+./-file08: data
+--
+cat ./-file07
+```
+**Explanation:** 
+- Search files and there types 
+- -file07 is the only file containing text therefore human readable
+
+**Password:** 6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG
